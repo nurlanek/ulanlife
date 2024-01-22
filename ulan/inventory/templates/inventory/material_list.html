@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+{% endblock %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+
+<div class="container">
+<h4>Список материалов</h4>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Наименование</th>
+                    <th>Количество</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for material in materials %}
+                    <tr>
+                        <td>{{ material.name }}</td>
+                        <td>{{ material.quantity }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary" href="{% url 'inventory_summary' %}">Свод по запасам</a>
+
+</div>
+{% endblock %}
+
+{% block js_files %}
+<script src="{% static 'account/js/script.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+{% endblock %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="container">
+<p>Привет, {{ user.username }}</p>
+{% for masterdata in masterdata_list %}
+     <ul>
+
+      <b>{{ forloop.counter }}.</b>
+     <li> Крой номер: {{ masterdata.kroy_no }}</li>
+     <li> Участок: {{ masterdata.uchastok }}</li>
+     <li> Единица: {{ masterdata.edinitsa }}</li>
+     <li> Дата: {{ masterdata.created|date:"d.m.Y H:i" }}</li>
+     <li> Примечение: {{ masterdata.description }}</li>
+         <button class="btn btn-primary btn-block">Завершить</button>
+
+
+    </ul>
+        {% empty %}
+   No records found.
+    {% endfor %}
+    <p>Одиночка</p>
+    {% for masterdata in kroy_detail_list %}
+    <ul>
+        <li>{{ masterdata.kroy }}крой </li>
+        <li>{{ masterdata.stuk }}штук </li>
+        <li> </li>
+    </ul>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
+
+{% block js_files %}
+<script src="{% static 'main/js/script.js' %}"></script>
+
+{% endblock %}
