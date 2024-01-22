@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Kroy_detail, Kroy, Uchastok, Masterdata, UserUchastok
-from django.utils.safestring import mark_safe
 
-#hhh
+
+#hhh   df
 # Register your models here.
 class UserUchastokAdmin(admin.ModelAdmin):
     list_display = ("user", "uchastok")
