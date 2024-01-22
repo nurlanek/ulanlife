@@ -7,7 +7,7 @@ from django.core.management import call_command
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 import json
-# Register your models here.
+# Register
 
 class MasterdataAdmin(admin.ModelAdmin):
     list_display = ("kroy_no","edinitsa", "created", "user")
